@@ -1,6 +1,13 @@
 <template>
     <div  class="home">
       <h1>HomePage</h1>
+      <p class="red white--text">Lorem ipsum dolor sit amet consectetur adipisicing elit. A beatae saepe aliquam fugit voluptatibus laboriosam error, suscipit repellat excepturi. Quibusdam incidunt dicta placeat natus maiores repudiandae delectus magni reprehenderit nihil?</p>
+      <p class="pink lighten-4 red--text text--darken-4">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto, nemo fuga saepe, repudiandae tempore expedita eligendi laborum cupiditate excepturi laudantium error ex, voluptatum molestiae amet ea. Totam quod perspiciatis tempora!</p>
+      <h1 class="display-4">Massive display</h1>
+      <h4 class="display-1">Smaller display</h4>
+      <p class="headline">This is a headline</p>
+      <p class="subheading">This is a subheading</p>
+      <p class="caption">This is a caption</p>
     </div>
 </template>
 
