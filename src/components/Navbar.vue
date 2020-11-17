@@ -17,13 +17,25 @@
     </v-toolbar>
 
     <v-navigation-drawer temporary app v-model="drawer" class="primary">
+      <v-row justify="center">
+        <v-col cols="6" class="mt-5">
+          <v-avatar size="100">
+            <img src="avatar-1.png" alt="">
+          </v-avatar>
+          <p class="white--text subtitle-3 mt-1">
+            The Net Ninja
+          </p>
+        </v-col>
+      </v-row>
       <v-list>
         <v-list-item v-for="link in links" :key="link.text" :to="link.route">
-          <v-list-item-action> 
-            <v-icon class="white--text">{{link.icon}}</v-icon>
+          <v-list-item-action>
+            <v-icon class="white--text">{{ link.icon }}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title class="white--text">{{link.text}}</v-list-item-title>
+            <v-list-item-title class="white--text">{{
+              link.text
+            }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
