@@ -51,7 +51,7 @@
 <script>
 import format from "date-fns/format";
 import parseISO from "date-fns/parseISO";
-import db from '../fb.js';
+import db from "../fb.js";
 export default {
   data() {
     return {
@@ -62,26 +62,28 @@ export default {
         (v) => (v && v.length >= 3) || "Minimun length is 3 characters",
       ],
       loading: false,
-      dialog:false,
+      dialog: false,
     };
   },
   methods: {
     submit() {
       if (this.$refs.form.validate()) {
-
         this.loading = true;
 
         const project = {
           title: this.title,
           content: this.content,
-          due: format(parseISO(this.due),'do MMM yyyy'),
+          due: format(parseISO(this.due), "do MMM yyyy"),
           person: "Avner José",
           status: "ongoing",
-        }
-        db.collection('projects').add(project).then(()=>{
-          this.loading = false;
-          this.dialog = false;
-        });
+        };
+        db.collection("projects")
+          .add(project)
+          .then(() => {
+            this.loading = false;
+            this.dialog = false;
+            this.$emit("projectAdded");
+          });
       }
     },
   },
@@ -89,7 +91,6 @@ export default {
     formattedDate() {
       return this.due ? format(parseISO(this.due), "do MMM yyyy") : "";
     },
-   
   },
 };
 </script>
