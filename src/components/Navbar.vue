@@ -12,7 +12,7 @@
       <v-spacer></v-spacer>
 
       <v-menu offset-y>
-        <template v-slot:activator="{on}">
+        <template v-slot:activator="{ on }">
           <v-btn text slot="activator" color="grey" v-on="on">
             <v-icon left>mdi-menu-down</v-icon>
             <span>Menu</span>
@@ -42,6 +42,11 @@
           <p class="white--text subtitle-3 mt-1">The Net Ninja</p>
         </v-col>
       </v-row>
+      <v-row class="d-flex" justify="space-around">
+        <v-col cols="9" class="mt-4 mb-3">
+          <Popup />
+        </v-col>
+      </v-row>
       <v-list>
         <v-list-item v-for="link in links" :key="link.text" :to="link.route">
           <v-list-item-action>
@@ -59,7 +64,12 @@
 </template>
 
 <script>
+import Popup from "./Popup";
+
 export default {
+  components: {
+    Popup,
+  },
   data() {
     return {
       drawer: false,
