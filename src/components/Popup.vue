@@ -50,6 +50,7 @@
 <script>
 import format from "date-fns/format";
 import parseISO from "date-fns/parseISO";
+import db from '../fb.js';
 export default {
   data() {
     return {
@@ -64,13 +65,22 @@ export default {
   methods: {
     submit() {
       if (this.$refs.form.validate()) {
-        console.log(this.title, this.content);
+        const project = {
+          title: this.title,
+          content: this.content,
+          due: format(parseISO(this.due),'Do MMM yyyy'),
+          person: "Avner José",
+          status: "ongoing",
+        }
+        db.collection('projects').add(project).then(()=>{
+          console.log('Deu certo')
+        })
       }
     },
   },
   computed: {
     formattedDate() {
-      return this.due ? format(parseISO(this.due), "EEEE, MMM do yyyy") : "";
+      return this.due ? format(parseISO(this.due), "do MMM yyyy") : "";
     },
    
   },
