@@ -1,5 +1,5 @@
 <template>
-  <v-dialog max-width="600px">
+  <v-dialog max-width="600px" v-model="dialog">
     <template v-slot:activator="{ on }">
       <v-btn text class="success" v-on="on"> Add new project </v-btn>
     </template>
@@ -38,6 +38,7 @@
             text
             class="success mx-0 mt-3"
             @click="submit()"
+            :loading="loading"
           >
             Add project
           </v-btn>
@@ -60,21 +61,27 @@ export default {
       inputRules: [
         (v) => (v && v.length >= 3) || "Minimun length is 3 characters",
       ],
+      loading: false,
+      dialog:false,
     };
   },
   methods: {
     submit() {
       if (this.$refs.form.validate()) {
+
+        this.loading = true;
+
         const project = {
           title: this.title,
           content: this.content,
-          due: format(parseISO(this.due),'Do MMM yyyy'),
+          due: format(parseISO(this.due),'do MMM yyyy'),
           person: "Avner José",
           status: "ongoing",
         }
         db.collection('projects').add(project).then(()=>{
-          console.log('Deu certo')
-        })
+          this.loading = false;
+          this.dialog = false;
+        });
       }
     },
   },
