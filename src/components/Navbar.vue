@@ -43,7 +43,7 @@
           <v-avatar size="100">
             <img src="avatar-1.png" alt="" />
           </v-avatar>
-          <p class="white--text subtitle-3 mt-1">The Net Ninja</p>
+          <p class="white--text subtitle-3 mt-1">Avner José</p>
         </v-col>
       </v-row>
       <v-row class="d-flex" justify="space-around">

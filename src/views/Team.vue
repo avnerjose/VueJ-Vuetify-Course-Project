@@ -1,6 +1,5 @@
 <template>
   <div class="team">
-    <h1 class="subtitle-1 grey--text">Team</h1>
     <v-container class="my-5">
       <v-row>
         <v-col cols="12" sm="6" md="4" lg="3" v-for="person in team" :key="person.name">

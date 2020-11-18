@@ -4,11 +4,11 @@
       <v-btn text class="success" v-on="on"> Add new project </v-btn>
     </template>
     <v-card>
-      <v-card-title>
-        <h2>Add a new</h2>
+      <v-card-title class="d-flex justify-center">
+        <h2>Add a new project</h2>
       </v-card-title>
       <v-card-text>
-        <v-form class="px-3" ref="form">
+        <v-form class="px-3 d-flex justify-center flex-column" ref="form">
           <v-text-field
             label="Title"
             v-model="title"
@@ -32,12 +32,13 @@
                 :rules="inputRules"
               ></v-text-field>
             </template>
-            <v-date-picker v-model="due"></v-date-picker>
+            <v-date-picker elevation="0" v-model="due"></v-date-picker>
           </v-menu>
           <v-btn
             text
-            class="success mx-0 mt-3"
+            class="success mx-0 mt-3 mx-16"
             @click="submit()"
+
             :loading="loading"
           >
             Add project
@@ -94,3 +95,5 @@ export default {
   },
 };
 </script>
+<style scoped>
+</style>
